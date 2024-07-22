@@ -1,0 +1,372 @@
+-- ********************************************************************************
+-- 1. ddl and simple dml
+create  database company;
+USE Company;
+
+-- part 1 
+-- Create Employee table
+CREATE TABLE Employees (
+    Fname VARCHAR(255) not null,
+    Lname VARCHAR(255) not null,
+    EM_ID INT PRIMARY KEY,
+    HIREDATE DATE not null,-- make constrain check usimg alter 
+    postion VARCHAR(255) not null,
+    salary DECIMAL(10, 2),-- make constrain check usimg alter 
+    D_ID INT, -- make constrain check usimg alter 
+   
+    FOREIGN KEY (D_ID) REFERENCES Departments(D_ID)
+);
+desc employees;
+TABLE employees;
+-- Create Department table
+CREATE TABLE Departments (
+  D_ID INT PRIMARY KEY ,
+    D_name VARCHAR(255)NOT NULL,
+     loction char (20)NOT NULL
+);
+ desc employees;
+ ----------------------------------------------------------------------------------------------------------------
+-- additiom requirment 
+-- Employees and Departments
+--1- if not give d_id give null
+UPDATE Employees SET D_ID = NULL WHERE D_ID NOT IN (SELECT D_ID FROM Departments);
+/* create table employee (
+d_id int null
+);
+*/
+--2- constrain of fk done 
+--3- constrain for check salary and time 
+ALTER TABLE Employees
+ADD CONSTRAINT CHK_Salary CHECK (Salary > 0); -- if salary is negative __ error 
+  ALTER TABLE Employees 
+ADD CONSTRAINT CHK_HireDate CHECK (HireDate <='2024-7-31');
+
+-- intial of task 1 
+INSERT INTO Employees (Em_ID, Fname, lname, D_ID, HireDate,postion, salary) VALUES
+(1, 'Abdullah', 'Ibrahim', 1, '2020-01-15', 'HR Manager', 60000.00),
+(2, 'Abdo', 'Ibrahim', 2, '2019-03-10', 'Accountant', 55000.00),
+(3, 'Mena', 'Ibrahim', 3, '2021-06-22', 'Software Engineer', 70000.00);
+
+INSERT INTO Employees (Em_ID, Fname, lname, D_ID, HireDate,postion, salary) VALUES
+(4, 'ALI', 'Ibrahim', 1, '2020-01-30', 'HR Manager', 70000.00),
+(5, 'ALI', 'HAMADA', 1, '2018-01-30', 'HEAD', 80000.00);
+INSERT INTO Employees (Em_ID, Fname, lname, D_ID, HireDate,postion, salary) VALUES
+(6, 'Ahmed', 'ALI', 1, '2020-01-30', 'devolper', 50000.00);
+INSERT INTO Departments (D_ID, D_name, Loction ) VALUES
+(1, 'Human Resources', 'New York'),
+(2, 'Finance', 'Los Angeles'),
+(3, 'Engineering', 'San Francisco');
+INSERT INTO Departments (D_ID, D_name, Loction ) VALUES
+(4, 'IT', 'New York'),
+(5, 'IT_Department', 'Los Angeles'),
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
+
+-- part  2
+
+CREATE TABLE Projects (
+  p_ID INT PRIMARY KEY ,
+    p_name VARCHAR(255) not null, 
+     Startdate date  not null, -- make constrain check usimg alter 
+     Enddate date  NOT NULL,   -- make constrain check usimg alter 
+     budget DECIMAL(10,2) not null  -- make constrain check usimg alter 
+);
+CREATE TABLE Assignments (
+    A_ID INT PRIMARY KEY,
+    EM1_ID INT, 
+    P_ID INT ,  
+    Role VARCHAR(255) NOT NULL,
+    AssignmentDate DATE NOT NULL,  -- make constrain check usimg alter 
+    FOREIGN KEY (P_ID) REFERENCES Projects(P_ID)
+);
+
+DESC ASSIGNMENTS;
+
+
+---------------------------------------------------------------------------------------------------------------
+-- additiom requirment 
+-- Projects and Assignments
+
+-- Ensure data consistency before adding constraints
+UPDATE Assignments SET EM1_ID = NULL WHERE EM1_ID NOT IN (SELECT EM1_ID FROM Employees);
+UPDATE Assignments SET P_ID = NULL WHERE P_ID NOT IN (SELECT P_ID FROM Projects);
+-- Add foreign key constraints IS DONE 
+ALTER TABLE Assignments ADD CONSTRAINT FK_EM
+FOREIGN KEY (EM1_ID)REFERENCES EMPLOYEES (EM_ID);
+-- CONSTRAIN FOR budget and data
+ALTER TABLE Projects
+ADD CONSTRAINT CHK_Budget CHECK (Budget > 0),
+ADD CONSTRAINT CHK_StartDate CHECK (StartDate <= EndDate);
+
+ -- --------------------------------------------------------------------
+-- insert in part 2 
+iNSERT INTO Projects (P_ID, p_Name, StartDate, EndDate, Budget) VALUES
+(1, 'Project beta', '2023-01-01', '2023-12-31', 1000000.00),
+(2, 'Project elkorba', '2023-06-01', '2024-05-31', 1500000.00);
+ TABLE Projects ;
+INSERT INTO Assignments (A_ID, EM1_ID, P_ID, Role, AssignmentDate) VALUES
+(1, 1, 1, 'Project Manager', '2023-01-01'),
+(2, 3, 1, 'Lead Developer', '2023-01-01'),
+(3, 2, 2, 'Financial Analyst', '2023-06-01');
+TABLE Assignments ;
+
+-- EM _ID  /// EM1_ID EMPLOYEE ID
+-- P_ID PROJECT ID 
+--A_ID  ASSIGNMENT ID 
+
+
+ ---------------------------------------------------------------------------
+
+
+-- part 3
+CREATE TABLE Customers (
+    Cus_ID INT PRIMARY KEY,
+    Cus_Name VARCHAR(255) not null,
+    Cus_ContactNum VARCHAR(20) not null,
+    Email VARCHAR(255) not null,
+    Address VARCHAR(255) not null
+);
+--o_id order id 
+-- order_date o_date
+-- cus_id  customer id  
+-- Create Orders table
+CREATE TABLE Orders (
+    O_ID INT PRIMARY KEY,
+    Cus_ID INT, -- make constrain check usimg alter 
+    O_Date DATE,-- make constrain check usimg alter 
+    TotalAmount DECIMAL(10, 2), -- make constrain check usimg alter 
+    FOREIGN KEY (Cus_ID) REFERENCES Customers(Cus_ID)
+);
+---------------------------------------------------
+-- additiom requirment 
+-- Customers and Orders
+
+-- Ensure all data set 
+UPDATE Orders SET Cus_ID = NULL WHERE Cus_ID NOT IN (SELECT Cus_ID FROM Customers);
+
+--  foreign key constraint is done 
+
+-- constraints for salary and date 
+ALTER TABLE Orders
+ADD CONSTRAINT CHK_TotalAmount CHECK (TotalAmount > 0),
+ADD CONSTRAINT CHK_OrderDate CHECK (O_Date <= '2024-7-31');
+
+ -- ----------------------------------------------------------------
+
+
+-- Insert initial data into Customers table
+INSERT INTO Customers (Cus_ID, Cus_Name,cus_ContactNum, Email, Address) VALUES
+(1, 'Ahmed Ali', '01021304688', 'alice@example.com', '123 Maple St, Springfield'),
+(2, 'Ahmed Nabil', '01021301299', 'bob@example.com', '456 Oak St, Springfield');
+
+
+-- Insert initial data into Orders table
+INSERT INTO Orders (O_ID, Cus_ID, O_Date, TotalAmount) VALUES
+(1, 1, '2024-07-15', 250.00),
+(2, 2, '2023-07-16', 150.00);
+INSERT INTO Orders (O_ID, Cus_ID, O_Date, TotalAmount) VALUES
+(3, 1, '2024-07-15', 250.00),
+(4, 2, '2023-07-16', 150.00);
+
+---------------------------------------------------
+---------------------------------------------------
+
+
+-- part  4 
+CREATE TABLE Products (
+    Product_ID INT PRIMARY KEY,
+    Product_Name VARCHAR(255)not null,
+    Category VARCHAR(255)not null,
+    Price DECIMAL(10, 2),-- make constrain check usimg alter 
+    StockQuantity INT not null
+);
+-- order detial --o_detail
+-- Create OrderDetails table
+CREATE TABLE OrderDetails (
+    O_Detail_ID INT PRIMARY KEY,
+    O_ID INT,-- make 2constrain check usimg alter 
+    Product_ID INT, -- make 2constrain check usimg alter 
+    Quantity INT not null,
+    UnitPrice DECIMAL(10, 2) -- make constrain check usimg alter   
+);
+
+----------------------------------------------------------------------------------------------------------------
+-- additiom requirment 
+--  Products and OrderDetails
+
+-- Ensure data consistency before adding constraints
+UPDATE OrderDetails SET O_ID = NULL WHERE O_ID NOT IN (SELECT O_ID FROM Orders);
+UPDATE OrderDetails SET Product_ID = NULL WHERE Product_ID NOT IN (SELECT Product_ID FROM Products);
+-- Add foreign key constraints IS DONE 
+ALTER TABLE OrderDetails ADD CONSTRAINT fk_order_id 
+    FOREIGN KEY (O_ID) REFERENCES Orders(O_ID);
+ALTER TABLE OrderDetails ADD CONSTRAINT fk_product_id
+FOREIGN KEY (Product_ID) REFERENCES Products(Product_ID);
+-- CONSTRAIN FOR budget and data
+ALTER TABLE OrderDetails
+ADD CONSTRAINT  chk_UnitPrice CHECK (UnitPrice > 0);
+
+ ---------------------------------------------------------------------------
+
+-- Insert initial data into Products table
+INSERT INTO Products (Product_ID, Product_Name, Category, Price, StockQuantity) VALUES
+(1, 'Laptop', 'Electronics', 800.00, 50),
+(2, 'Headphones', 'Accessories', 50.00, 200); 
+
+-- Insert initial data into OrderDetails table
+INSERT INTO OrderDetails (O_Detail_ID, O_ID, Product_ID, Quantity, UnitPrice) VALUES
+(1, 1, 1, 1, 800.00),
+(2, 1, 2, 2, 50.00),
+(3, 2, 2, 3, 50.00);
+
+
+
+
+
+
+
+
+
+--DROP DATABASE COMPANY ;
+-- ***********************************************************************************************************
+-- ***********************************************************************************************************
+--2 - Additional Step for the Project
+ -- is done  insertion is done 
+ -- ********************************************************************************************************
+ -- ********************************************************************************************************
+ --3-Task Plan
+ -- Q1 
+ select 
+ upper(e.Fname) as fname,lower(e.Lname)as lname,
+ e.postion AS POSITION,
+  LENGTH(e.postion)as lens_of_pos,d.d_name
+ from employees e 
+ JOIN departments d 
+ using(D_ID);
+-- Q2 
+ SELECT 
+  sum(e.salary)as total_salary,
+ round(sum(e.salary),-3) as total_salary_expenditure,
+ COUNT(e.em_id)as "num of employee",
+ d.D_name,d.D_id 
+ from employees e
+JOIN departments d using (D_Id)
+GROUP BY d.D_ID
+ORDER BY total_salary_expenditure DESC;
+ -- q3 
+
+select 
+ concat(fname," ",lname)as "fullname",
+P.P_NAME AS PROJECTNAME,
+A.Role as "role of the employee"
+ from employees e 
+ JOIN assignments a on a.EM1_ID=e.EM_ID
+ JOIN projects p using(P_ID);
+
+
+-- q4 
+SELECT
+    LOWER(c.cus_name) AS customer_name,
+    COUNT(o.o_id) AS total_orders_placed,
+    SUM(o.totalamount) AS total_amount
+FROM
+    customers c
+JOIN
+    orders o ON c.cus_id = o.cus_id
+GROUP BY
+    c.cus_name
+ORDER BY
+    total_amount DESC;
+
+    -- q5 
+    SELECT
+    LEFT(p.product_name,10) AS product_name,
+    LEFT(p.category,2) AS product_category,
+    SUM(o.Quantity) AS total_quantity_ordered
+FROM
+    products p
+JOIN
+    orderdetails o ON p.product_id = o.product_id
+GROUP BY
+p.product_name ,p.category
+ORDER BY product_name desc ;
+
+-- q6 
+
+
+CREATE PROCEDURE GetT ()
+BEGIN
+SELECT
+    concat(e.fname," ",e.lname),
+    e.salary as "salary bigger than avg",
+    d.d_name
+FROM
+    employees e
+JOIN
+    departments d ON e.d_id = d.d_id
+where e.salary > ( sELECT AVG(salary) FROM employees) ;
+END;
+ CALL GetT() ;
+
+ --Q7
+
+
+ SELECT AVG(salary_count) AS avg_salary_count
+FROM (
+    SELECT COUNT(salary) AS salary_count
+    FROM employees
+    GROUP BY D_id
+) AS SUB;
+SELECT COUNT(salary) AS salary_count,D_ID
+    FROM employees
+    GROUP BY D_id;
+
+/* SELECT
+    concat(e.fname," ",e.lname),
+    e.salary as "salary bigger than avg",
+    d.d_name
+FROM
+    employees e
+JOIN
+    departments d ON e.d_id = d.d_id
+where e.salary > ( sELECT AVG(salary) FROM employees) ;
+ sELECT AVG( count(salary))  FROM employees GROUP BY em_id;
+*/
+--Q8 R
+ CREATE FUNCTION F1 ( P_salary int )
+ RETURNS VARchar (20)
+ DETERMINISTIC
+ begin 
+DECLARE v_result VARCHAR(20);
+set @avr=(SELECT avg(salary)from employees);
+ IF p_salary > @avr THEN
+        SET v_result = 'Higher than';
+    ELSE 
+        SET v_result = 'Lower than';
+    END IF;  
+    RETURN v_result; 
+ end;
+ SELECT avg(salary)from employees; --67000
+select f1(80000);
+
+--q9
+
+INSERT INTO Departments (D_ID, D_name, Loction ) VALUES
+(4, 'IT', 'New York');
+table Departments;
+delete from departments where d_name ="IT";
+table Departments;
+
+
+
+-- q10
+
+INSERT INTO Employees (Em_ID, Fname, lname, D_ID, HireDate,postion, salary) VALUES
+(6, 'Ahmed', 'ALI', 5, '2020-01-30', 'devolper', 50000.00);
+
+ select E.*,D.D_name from employees e 
+ JOIN departments d  on e.d_id=d.d_id
+ where D_name="IT_Department";
+
+        
