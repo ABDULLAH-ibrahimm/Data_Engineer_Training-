@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Customers>
+	<Customer>
+		<CustomerID>1</CustomerID>
+		<Name>John Doe</Name>
+		<Address>123 Elm St</Address>
+		<Email>john.doe@example.com</Email>
+	</Customer>
+	<Customer>
+		<CustomerID>2</CustomerID>
+		<Name>Jane Smith</Name>
+		<Address>456 Oak St</Address>
+		<Email>jane.smith@example.com</Email>
+	</Customer>
+	<Customer>
+		<CustomerID>3</CustomerID>
+		<Name>Jim Brown</Name>
+		<Address>789 Pine St</Address>
+		<Email>jim.brown@example.com</Email>
+	</Customer>
+	<Customer>
+		<CustomerID>4</CustomerID>
+		<Name>Emma Davis</Name>
+		<Address>101 Maple St</Address>
+		<Email>emma.davis@example.com</Email>
+	</Customer>
+	<Customer>
+		<CustomerID>5</CustomerID>
+		<Name>Mary Johnson</Name>
+		<Address>234 Birch St</Address>
+		<Email>mary.johnson@example.com</Email>
+	</Customer>
+</Customers>

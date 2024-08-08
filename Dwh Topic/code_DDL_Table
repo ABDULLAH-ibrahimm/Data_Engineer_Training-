@@ -1,0 +1,112 @@
+    use [DWH_Orders];
+drop table if exists FactOrders;
+drop table if exists Orders;
+drop table if exists OrderDetails;
+drop table if exists Customers_dim;
+drop table if exists Products_dim;
+drop table if exists Time_Dim;
+
+-- COME FROM XML FILE 
+CREATE TABLE Customers_dim (
+    CustomerID INT PRIMARY KEY,
+    Name NVARCHAR(255),
+    Address NVARCHAR(255),
+    Email NVARCHAR(255),
+    [Execution start time] DATETIME,
+    [Package name] NVARCHAR(64)
+);
+--COME FROM TXT FILE
+CREATE TABLE Products_dim (
+    ProductID INT PRIMARY KEY,
+    Name VARCHAR(255),
+    Category VARCHAR(255),
+	  [Execution start time] datetime,
+    [Package name] nvarchar(64)
+);
+-- COME FROM DB >>FILLE>>tABLE>>TIM ()WHICH I CREATED THIS )
+CREATE TABLE Time_Dim(
+    tim_id  INT ,
+    Date DATE  primary key,
+    Year INT,
+    Quarter CHAR(2),
+    Month INT,
+    DayOfMonth INT,
+    DayOfWeek VARCHAR(10),
+    WeekOfYear INT,
+	  [Execution start time] datetime,
+    [Package name] nvarchar(64)
+);
+
+ -- here >> go to ssis ETL 
+-- -------------------------------------------------------------------------------------------------
+ -- this for fact table
+ CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    OrderDate DATE,
+    CustomerID INT,
+    TotalAmount DECIMAL(10, 2),
+    FOREIGN KEY (CustomerID) REFERENCES Customers_dim(CustomerID)
+);
+CREATE TABLE OrderDetails (
+    OrderDetailID INT PRIMARY KEY,
+    OrderID INT,
+    ProductID INT,
+    Quantity INT,
+    UnitPrice DECIMAL(10, 2),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Products_dim(ProductID)
+);
+-- insert after aplod dimensions because related to this 
+INSERT INTO Orders (OrderID, OrderDate, CustomerID, TotalAmount) VALUES
+(1, '2023-01-15', 1, 1249.98),
+(2, '2023-02-20', 2, 49.99),
+(3, '2023-03-05', 3, 199.99),
+(4, '2023-04-10', 4, 89.99),
+(5, '2023-05-15', 5, 599.99);
+
+INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, UnitPrice) VALUES
+(1, 1, 1, 1, 999.99),
+(2, 1, 2, 1, 199.99),
+(3, 2, 3, 1, 49.99),
+(4, 3, 2, 1, 199.99),
+(5, 4, 5, 1, 89.99),
+(6, 5, 4, 1, 599.99);
+-- ------------------------------------------------------
+-- fact table 0
+CREATE TABLE FactOrders (
+    FactOrderID INT identity(1,1 )PRIMARY KEY,
+    DOrderI INT,
+    OrderDate DATE,
+    CustomerID INT,
+    TotalAmount DECIMAL(10, 2),
+    ProductID INT,
+    Quantity INT,
+    UnitPrice DECIMAL(10, 2),
+    DateKey date ,
+    FOREIGN KEY (CustomerID) REFERENCES Customers_dim(CustomerID),
+    FOREIGN KEY (ProductID) REFERENCES Products_dim (ProductID),
+    FOREIGN KEY (DateKey) REFERENCES Time_Dim (Date)
+);
+
+
+-- ---------------------------------------------------------
+-- TO MAKE TABLE TIME
+use FILLE;
+drop table if exists Time_source;
+CREATE TABLE Time_source (
+   time_id INT PRIMARY KEY,
+    Date DATE,
+    Year INT,
+    Quarter CHAR(2),
+    Month INT,
+    DayOfMonth INT,
+    DayOfWeek VARCHAR(10),
+    WeekOfYear INT
+);
+
+INSERT INTO Time_source ( time_id, Date, Year, Quarter, Month, DayOfMonth, DayOfWeek, WeekOfYear) VALUES
+(20230115, '2023-01-15', 2023, 'Q1', 1, 15, 'Sunday', 3),
+(20230220, '2023-02-20', 2023, 'Q1', 2, 20, 'Monday', 8),
+(20230305, '2023-03-05', 2023, 'Q1', 3, 5, 'Sunday', 10),
+(20230410, '2023-04-10', 2023, 'Q2', 4, 10, 'Monday', 15),
+(20230515, '2023-05-15', 2023, 'Q2', 5, 15, 'Monday', 20);

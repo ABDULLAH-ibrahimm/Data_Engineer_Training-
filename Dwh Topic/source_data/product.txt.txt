@@ -1,0 +1,6 @@
+ProductID,Name,Category
+1,Laptop,Electronics
+2,Tablet,Electronics
+3,Smartphone,Electronics
+4,Headphones,Accessories
+5,Charger,Accessories

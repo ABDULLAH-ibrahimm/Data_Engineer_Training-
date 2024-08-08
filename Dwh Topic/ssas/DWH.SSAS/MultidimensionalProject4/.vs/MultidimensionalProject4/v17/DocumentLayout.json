@@ -1,0 +1,81 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3AC6754A-6045-4C98-8BA1-1987D7A81945}|MultidimensionalProject4.dwproj|C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\DWH Orders.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{3AC6754A-6045-4C98-8BA1-1987D7A81945}|MultidimensionalProject4.dwproj|solutionrelative:DWH Orders.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AC6754A-6045-4C98-8BA1-1987D7A81945}|MultidimensionalProject4.dwproj|C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\Order Details.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{3AC6754A-6045-4C98-8BA1-1987D7A81945}|MultidimensionalProject4.dwproj|solutionrelative:Order Details.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AC6754A-6045-4C98-8BA1-1987D7A81945}|MultidimensionalProject4.dwproj|C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\Time Dim.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{3AC6754A-6045-4C98-8BA1-1987D7A81945}|MultidimensionalProject4.dwproj|solutionrelative:Time Dim.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AC6754A-6045-4C98-8BA1-1987D7A81945}|MultidimensionalProject4.dwproj|C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\Customers Dim.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{3AC6754A-6045-4C98-8BA1-1987D7A81945}|MultidimensionalProject4.dwproj|solutionrelative:Customers Dim.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DWH Orders.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\DWH Orders.cube",
+              "RelativeDocumentMoniker": "DWH Orders.cube",
+              "ToolTip": "C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\DWH Orders.cube [Design]",
+              "RelativeToolTip": "DWH Orders.cube [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH2SURBVDhPrZLPS1RRFMe/hRuhxAhyU9gisaAoIrBEyX0bg4Q2gbhTF4GEi\u002BhPiKBFq2CCFjIrF6ILEfsxleEPZhMklRuj0Z5FyryZ\u002B2bue\u002B\u002Bezj33vZmn0q4D551z77uf7znnco/gH\u002Bat5\u002BhNfiRZAQN3c\u002Bi4MLL/PBEdEsiCtx8sIo7qMKHG7LNB2Tso1Eiy4J2HH0BxBBOHiBk2IYtEWvL5F/fkTCokAjO5\u002BxRsPhXQGTFgBRxkpIuMGO\u002B/yo9j9QtwNCEw0HcZvwtjkhMlH8NOxuUSjZVGcW4c7cflKFpcANquTkpMRU7ceMIcAwwTC9m4Mj0s/y6eOwmtNRbW/KaAGAPHLo2BwjJ2P07ABFtou/4cS1ND8vvK\u002BQ5EPFrI4\u002Bh6XfYaI1ijmDejKgtU0HrmJlo7b\u002BH9y0EBrQvIleu1GgK\u002BD2sNAQtTAhtdBmmfc19Aa7aydVvZwtVAtpsCJvBgVAlxtcRxG7H6yV6SqkopVHwfe34Zv8oa3h9gZ9dxzQ54bsNVDVcFOyVdpPMqbt1Wta5q7O4KmgKvC0pgN4JrnyLVaNlClQz8\u002BXs/rnVnXuKPb8tUfDclee/ZgtwDz4Atb1uqCszg2td\u002BOTP66DFOd/W4l5i1rFDPqTw2Nj2BC5/2g7JgOySQWiq0/LYo64PgfzLgL35UaB7JMNnvAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-08-08T20:39:14.188Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Order Details.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\Order Details.dim",
+              "RelativeDocumentMoniker": "Order Details.dim",
+              "ToolTip": "C:\\Users\\Abdo\\source\\repos\\MultidimensionalProject4\\Order Details.dim [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\source\\repos\\MultidimensionalProject4\\Order Details.dim [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVDhPpZLRDYAgDAXRGVmAeRzAEfxyARMH0AFcB/OqJEXEtngJFJJe24\u002B6X8QY7xeRfbT0uIZxIjlFC1RgW2f6HPtC8QM0SKdA2z0rQBMYgNhdzxJpAnHCrwRRBrUklQzeEtUyeCabZMAFswyS1CQDiKLsvY985flStHSuLlWVEAKbwLkTeGcvuCvtmz4AAAAASUVORK5CYIIAAAAAAAAAAAAAAAAAAA==",
+              "WhenOpened": "2024-08-08T20:38:58.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Time Dim.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\Time Dim.dim",
+              "RelativeDocumentMoniker": "Time Dim.dim",
+              "ToolTip": "C:\\Users\\Abdo\\source\\repos\\MultidimensionalProject4\\Time Dim.dim [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\source\\repos\\MultidimensionalProject4\\Time Dim.dim [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVDhPpZLRDYAgDAXRGVmAeRzAEfxyARMH0AFcB/OqJEXEtngJFJJe24\u002B6X8QY7xeRfbT0uIZxIjlFC1RgW2f6HPtC8QM0SKdA2z0rQBMYgNhdzxJpAnHCrwRRBrUklQzeEtUyeCabZMAFswyS1CQDiKLsvY985flStHSuLlWVEAKbwLkTeGcvuCvtmz4AAAAASUVORK5CYIIAAAAAAAAAAAAAAAAAAA==",
+              "WhenOpened": "2024-08-08T20:38:21.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Customers Dim.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdo\\Desktop\\Data_Engineer\\Dwh Topic\\ssas\\DWH.SSAS\\MultidimensionalProject4\\Customers Dim.dim",
+              "RelativeDocumentMoniker": "Customers Dim.dim",
+              "ToolTip": "C:\\Users\\Abdo\\source\\repos\\MultidimensionalProject4\\Customers Dim.dim [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\source\\repos\\MultidimensionalProject4\\Customers Dim.dim [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVDhPpZLRDYAgDAXRGVmAeRzAEfxyARMH0AFcB/OqJEXEtngJFJJe24\u002B6X8QY7xeRfbT0uIZxIjlFC1RgW2f6HPtC8QM0SKdA2z0rQBMYgNhdzxJpAnHCrwRRBrUklQzeEtUyeCabZMAFswyS1CQDiKLsvY985flStHSuLlWVEAKbwLkTeGcvuCvtmz4AAAAASUVORK5CYIIAAAAAAAAAAAAAAAAAAA==",
+              "WhenOpened": "2024-08-08T20:36:31.232Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
