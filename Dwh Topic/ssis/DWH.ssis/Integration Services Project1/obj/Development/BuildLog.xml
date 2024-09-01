@@ -2,13 +2,18 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Dwh_SSIS</Name>
-    <LastWriteTime>2024-08-08T20:15:36.7979136Z</LastWriteTime>
+    <LastWriteTime>2024-09-01T02:01:36.5921145Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>DWH_Orders.dtsx</Name>
-      <LastWriteTime>2024-08-09T21:57:57.803931Z</LastWriteTime>
+      <LastWriteTime>2024-08-31T23:30:27.635736Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>dwh_postgres.dtsx</Name>
+      <LastWriteTime>2024-09-01T02:01:36.5608376Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
